@@ -1,0 +1,21 @@
+html,body,#root {
+  margin :0;
+  padding :0;
+  height : 100%;
+  text-align : center;
+  font-style: italic;
+  color: orange;
+  background-image: linear-gradient(45deg, purple , black);
+}
+a{
+  color:white;
+}
+
+.box{
+  display: inline-block;
+  border: 1px solid black;
+  padding:20px;
+  margin:10px;
+  border-radius: 10px;
+  box-sizing: 5px 5px 10px;
+}

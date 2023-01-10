@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>targil 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <center>
+      <h1>Dark Mode</h1>
+      <hr />
+      <input type="text" placeholder="user name..." /><br /><br />
+      <input type="password" placeholder="user password..." /><br /><br />
+      <input type="button" value="login" /><br /><br />
+      <input type="button" id="darkMode" value="night" /><br /><br />
+      <br /><br /><br />
+      <div id="mouseData"></div>
+    </center>
+    <script>
+      let isNight = false;
+      const dayMode = { background: "white", color: "black" };
+      const nightMode = { background: "black", color: "white" };
+
+      const dayNight = () => {
+        $("body, input").css(isNight ? dayMode : nightMode);
+        //$("input").css(isNight ? dayMode : nightMode);
+        $("#darkMode").attr("value", !isNight ? "day" : "night");
+        isNight = !isNight;
+      };
+
+      //document ready
+      $(() => {
+        //doing it all the time
+        $("#darkMode").on("click", () => {
+          dayNight();
+        });
+
+        //tamar hate to change all the time, the eyes , eyyyyyyyes
+        // $("#darkMode").one("click", () => {
+        //   dayNight();
+        // });
+
+        //tamar don't want the day night button at all
+        $("#darkMode").off("click");
+      });
+
+      $(() => {
+        $(document).on("mousemove", (event) => {
+          console.log(event);
+          const mouseData = `pageX: ${event.pageX} pageY:${event.pageY}`;
+          $("#mouseData").html(mouseData);
+        });
+      });
+    </script>
+  </body>
+</html>
